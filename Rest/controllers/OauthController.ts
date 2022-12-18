@@ -4,6 +4,7 @@ import axios from "axios";
 const CLIENT_ID = process.env.CLIENT_ID!;
 const CLIENT_SECRET = process.env.CLIENT_SECRET!;
 const GITHUB_URL = process.env.GITHUB_URL!;
+const REDIRECT_URI = process.env.REDIRECT_URI!;
 
 const OauthController: RequestHandler = (req, res) => {
   axios({
@@ -14,7 +15,7 @@ const OauthController: RequestHandler = (req, res) => {
     },
   }).then((response) => {
     res.redirect(
-      `${req.url}/${response.data.access_token}`
+      `${REDIRECT_URI}/${response.data.access_token}`
     );
   });
 };
