@@ -17,7 +17,7 @@ const OauthController: RequestHandler = (req, res) => {
     res.redirect(
       `${REDIRECT_URI}/${response.data.access_token}`
     );
-  });
+  }).catch(err => { console.log(err)});
 };
 
 export { OauthController };
